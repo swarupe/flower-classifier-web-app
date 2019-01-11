@@ -23,7 +23,6 @@ def predict():
         imageSave.save(os.path.join(app.config['UPLOAD_FOLDER'], 'upload.jpg'))
         flower_name = predict_flower()
         imagename = os.path.join(app.config['UPLOAD_FOLDER'], 'upload.jpg')
-        print(imagename)
         return render_template('result.html', flower= flower_name, im_name = imagename)
 
 if __name__ == '__main__':
