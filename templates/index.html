@@ -5,39 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Flower Classifier</title>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
     
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+    
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
     
     <script src="{{ url_for('static',filename='js/main.js') }}"></script>
 </head>
 <body>
-    
-    <form method="POST" enctype="multipart/form-data">
-        <div class="file-upload">
-            <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
-            
-            <div class="image-upload-wrap">
-                <input class="file-upload-input" name="flower_img" type='file' onchange="readURL(this);" accept="image/*" />
-                <div class="drag-text">
-                    <h3>Drag and drop a file or select add Image</h3>
-                </div>
+    <nav class="navbar">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item active text-center">
+                <h1>Flower Classifier </h1>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col mx-auto">
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="file-upload">
+                        <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+                        
+                        <div class="image-upload-wrap">
+                            <input class="file-upload-input" name="flower_img" type='file' onchange="readURL(this);" accept="image/*" />
+                            <div class="drag-text">
+                                <h3>Drag and drop a Image or select add Image</h3>
+                            </div>
+                        </div>
+                        <div class="file-upload-content">
+                            <img class="file-upload-image" src="#" alt="your image" />
+                            <div class="image-title-wrap">
+                                <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <input class="btn btn-success btn-lg" type="submit" value="PREDICT">
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="file-upload-content">
-                <img class="file-upload-image" src="#" alt="your image" />
-                <div class="image-title-wrap">
-                    <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
-                </div>
-            </div>
-            <input class="btn btn-success" type="submit" value="Submit">
         </div>
-    </form>
+    </div>
+    <footer class=" footer bottom text-center">
+        <p>Lab Challenge Project at Udacity's PyTorch Scholarship Challenge built by <a href="#">@swarupe</a>.</p>
+    </footer>
 </body>
 </html>

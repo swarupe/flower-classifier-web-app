@@ -12,8 +12,8 @@ idx_to_class = {v:k for k,v in class_to_idx.items()}
 
 model = load_model()
 
-def predict_flower(image_bytes):
-    imgTensor = img_tensor(image_bytes)
+def predict_flower():
+    imgTensor = img_tensor()
     outputs = model.forward(imgTensor)
     _, pred = outputs.max(1)
     category = pred.item()

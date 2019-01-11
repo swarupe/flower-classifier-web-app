@@ -16,7 +16,7 @@ def load_model():
     model.eval()
     return model
 
-def img_tensor(image_bytes):
+def img_tensor():
     img_transforms = transforms.Compose([
                                     transforms.Resize(256),
                                     transforms.CenterCrop(224),
@@ -24,5 +24,5 @@ def img_tensor(image_bytes):
                                     transforms.Normalize(
                                             [0.485, 0.456, 0.406],
                                             [0.229, 0.224, 0.225])])
-    img = Image.open(io.BytesIO(image_bytes))
+    img = Image.open("static/uploads/upload.jpg")
     return img_transforms(img).unsqueeze(0)
